@@ -1,0 +1,30 @@
+<style>
+    table thead tr{
+        background-color: #ccc;
+    }
+</style>
+<div class="container" ng-controller="UsersController"> 
+    <h3>User Listing</h3>
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Address</td>
+                <td>Age</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="emp2 in emp_det">
+                <td>{{emp2.id}}</td>
+                <td>{{emp2.name}}</td>
+                <td>{{emp2.email}}</td>
+                <td>{{emp2.city}}</td>
+                <td>{{emp2.age}}</td>
+                <td><a href="" ui-sref="users_details({id:emp2.id})">View</a> | <a href="" ui-sref="edit_user({id:emp2.id})">Edit</a> | <a href="" ng-click="deleteUser($index);">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

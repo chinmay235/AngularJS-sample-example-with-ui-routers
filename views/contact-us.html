@@ -1,0 +1,27 @@
+<h3>Contact Us</h3>
+<div>
+    <form name="contactForm" novalidate ng-submit="contactForm.$valid && submitForm()" method="post">
+        Name:<br><input type="text" ng-model="formData.name" name="name" required="" />
+        <div ng-show="contactForm.$submitted || contactForm.name.$touched">
+            <span ng-show="contactForm.name.$error.required" style="color:red;">Name is required.</span>
+        </div>
+        <br>
+        Email: <br><input type="email" ng-model="formData.email" name="email" required="" />
+        <div ng-show="contactForm.$submitted || contactForm.email.$touched">
+            <span ng-show="contactForm.email.$error.required" style="color:red;">Email is required.</span>
+            <span ng-show="contactForm.email.$error.email" style="color:red;">Invalid email address.</span>
+        </div>
+        <br>
+        Message: <br><textarea ng-model="formData.message" name="message" ng-minlength="50" ng-maxlength="500" required=""></textarea>
+        <div ng-show="contactForm.$submitted || contactForm.message.$touched">
+            <span ng-show="contactForm.message.$error.required" style="color:red;">Message is required.</span>
+            <span ng-show="contactForm.message.$dirty&&contactForm.message.$error.minlength" style="color:red"> Minimum 50 Characters Required </span>
+            <span ng-show="contactForm.message.$dirty&&contactForm.message.$error.maxlength" style="color:red"> Maximum 500 Characters Allowed </span>
+        </div>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        <h2>Result:</h2>
+        <pre>{{result | json}}</pre>
+    </form>
+</div>
